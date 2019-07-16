@@ -6,7 +6,14 @@ console.log('Here is : ', 'Object')
 Create an object represents you
 have your first name, last name, age, dob(date of birth), favorite food (3),favorite movie (5)
 */
-
+var me = {
+  firstName: "Moath",
+  lastName: "Abady",
+  age: 26,
+  dob: "08-04-2019",
+  favoriteFood: ["mansaf", "maqlooba","zarb"],
+  favoriteMovie: ["warrior", "deadpool", "batman", "green miles","me before you"]
+}
 
 
 
@@ -30,6 +37,18 @@ and return all the first name of the person insides
 Ex: firstName(persons) => ['John', 'Alex', 'Alice', 'Thor', 'Soso']
 */
 
+var x = persons.length;
+function firstName (obj) {
+  shaker = obj[0]['name']['first']
+  for (var i = 1; i < x; i++) {
+    var shaker = shaker + ", "+ obj[i]['name']['first'];
+  }
+  return shaker
+
+}
+  
+
+
 
 /*
 3
@@ -41,6 +60,14 @@ and return the average age of those persons
 Ex: averageAge(persons) => 41.2
 */
 
+function averageAge (obj) {
+  moath = 0;
+  for (var i = 0; i < x; i++) {
+    var moath = moath + obj[i]['age'];
+  }
+  return moath / x;
+}
+
 
 /*
 4
@@ -51,6 +78,18 @@ and return the full name of the older person
 
 Ex: olderPerson(persons) => "Soso Al-Amora"
 */
+  function olderPerson(obj){
+  var max= persons[0]["age"]
+  for (var i = 1; i<x; i++){
+   var old = persons[i]["age"]
+    if (old > max ){
+     max = old;
+     s = obj[i]["name"]["first"]+" "+obj[i]["name"]["last"] ;
+  }
+}
+return s;
+}
+
 
 
 /*
@@ -62,6 +101,18 @@ and return the full name of the person have longest full name
 
 Ex: longestName(persons) => "Soso Al-Amora"
 */
+
+function olderPerson1(obj){
+  var max= obj[0]["name"]["first"]+" "+obj[0]["name"]["last"]
+  for (var i = 1; i<x; i++){
+     s = obj[i]["name"]["first"]+" "+obj[i]["name"]["last"] ;
+     if (s.length > max.length)
+     max = s;
+       
+    }
+  return max;
+
+}
 
 
 /*
@@ -99,6 +150,9 @@ Ex: repeatWord("My name is alex mercer class name B baba mama hello Hello HELLO"
 }
 */
 
+function repeatWord(obj){
+  
+}
 
 
 /*
