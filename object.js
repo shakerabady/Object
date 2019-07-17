@@ -151,7 +151,7 @@ Ex: repeatWord("My name is alex mercer class name B baba mama hello Hello HELLO"
 */
 
 function repeatWord(obj){
-  
+
 }
 
 
@@ -199,6 +199,13 @@ and return an object of the keys and values in this object
 Ex: arrayToObject(["firstName","Moh","age",24])
 => {firstName:"Moh",age:24}
 */
+function arrayToObject(x){
+var obj= {};
+for (var i=0; i<x.length; i+=2){
+obj[x[i]]=x[i+1]
+}
+return obj
+}
 
 
 /*
@@ -211,7 +218,15 @@ and return a new object that have only the values that is a number
 Ex: onlyNumber({firstName:"Moh",age:24,movies:[1,5,"string"]})
 => {age:24}
 */
-
+function onlyNumber(obj){
+  // debugger
+  var obj1= {};
+  for (var key in obj){
+  if (typeof(obj[key])==="number")
+  obj1[key]=obj[key]
+  }
+  return obj1
+} 
 
 /*
 13
@@ -223,6 +238,15 @@ and return a new object that have only the values that is a string
 Ex: onlyString({firstName:"Moh",age:24,movies:[1,5,"string"]})
 => {firstName:"Moh"}
 */
+function onlyString (obj){
+  var obj1 = {};
+  for (var key in obj)
+  if (typeof(obj[key])==="string"){
+  obj1[key]=obj[key]
+  }
+  return obj1
+}
+
 
 
 /*
@@ -235,6 +259,14 @@ and return a new object that have only the values that is a array
 Ex: onlyArray({firstName:"Moh",age:24,movies:[1,5,"string"]})
 => {movies:[1,5,"string"]}
 */
+function onlyArray (obj){
+  var obj1 = {};
+  for (var key in obj)
+  if (typeof(obj[key])==="object"){
+  obj1[key]=obj[key]
+  }
+  return obj1
+}
 
 
 /*
@@ -247,6 +279,12 @@ Ex: keysArray({firstName:"Moh",age:24,movies:[1,5,"string"]})
 => ['firstName', 'age', 'movies']
 
 */
+function keysArray (obj){
+  var arr=[]
+  for (var key in obj)
+  arr.push(key)
+  return arr
+}
 
 
 /*
@@ -260,6 +298,15 @@ Ex: keysArray({firstName:"Moh",age:24,movies:[1,5,"string"]})
 
 */
 
+function valuesArray (obj){
+  var arr=[]
+  for (var key in obj)
+  arr.push(obj[key])
+  return arr
+}
+
+
+
 
 /*
 17
@@ -267,7 +314,11 @@ make this object => {a:1,b:3,c:4}
 to be this object {a:4,c:66}
 **hint: Search on MDN how to remove a key/value from an object
 */
-
+var object =
+ {a:1,b:3,c:4}
+ delete object["b"];
+object['c']=66;
+object['a']=4;
 
 /*
 18
@@ -278,7 +329,14 @@ and return the number of keys inside this object
 Ex: keysArray({a:1,b:2,c:3,d:4})
 => 4
 */
+function objectLength (obj)
+{
+  var counter=0
+  for (var key in obj)
+counter++
+return counter
 
+}
 
 /*
 19
@@ -289,7 +347,14 @@ and return a new object that have only the key/values if the value is even
 Ex: evenValue({a:1, b:2, c:3, d:4})
 => {b:2, d:4}
 */
-
+function  evenValue (obj){
+var obj1={};
+for (var key in obj){
+if (obj[key]%2===0){
+obj1[key]=obj[key];}
+}
+return obj1;
+}
 
 /*
 20
@@ -299,3 +364,14 @@ and return the value inside the longest key
 
 Ex: evenValue({car:1, school:2, monster:3, alexMercer:4})=> 4
 */
+
+
+function  longestKey (obj){
+  var long="";
+  for (var key in obj){
+  if (key.length>long.length){
+  long= key
+  }
+  }
+return obj[long]
+}
